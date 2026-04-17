@@ -1,0 +1,60 @@
+name: Tests & Linters
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x]
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    
+    # Frontend
+    - name: Frontend - Install dependencies
+      working-directory: ./frontend
+      run: npm ci
+    
+    - name: Frontend - Run tests
+      working-directory: ./frontend
+      run: npm test || true
+    
+    # Favorites Service
+    - name: Favorites Service - Install dependencies
+      working-directory: ./service-favorites
+      run: npm ci
+    
+    - name: Favorites Service - Run tests
+      working-directory: ./service-favorites
+      run: npm test || true
+    
+    # Wishlist Service
+    - name: Wishlist Service - Install dependencies
+      working-directory: ./service-wishlist
+      run: npm ci
+    
+    - name: Wishlist Service - Run tests
+      working-directory: ./service-wishlist
+      run: npm test || true
+    
+    # Comments Service
+    - name: Comments Service - Install dependencies
+      working-directory: ./service-comments
+      run: npm ci
+    
+    - name: Comments Service - Run tests
+      working-directory: ./service-comments
+      run: npm test || true

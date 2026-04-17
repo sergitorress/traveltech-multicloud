@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelTech - Planificador de Viatges</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✈️ TravelTech Solutions</h1>
+            <p>Descobreix els millors destins del món</p>
+        </header>
+
+        <section class="search-section">
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    id="countrySearch" 
+                    placeholder="Busca un país o destinació..."
+                    autocomplete="off"
+                >
+                <button onclick="searchCountry()">🔍 Buscar</button>
+            </div>
+            <div id="suggestions" class="suggestions"></div>
+        </section>
+
+        <section id="resultSection" class="result-section" style="display: none;">
+            <div class="result-header">
+                <h2 id="countryName"></h2>
+                <div class="action-buttons">
+                    <button onclick="toggleFavorite()" class="btn btn-favorite">❤️ Afegir a Favorits</button>
+                    <button onclick="toggleWishlist()" class="btn btn-wishlist">📌 Wishlist</button>
+                </div>
+            </div>
+
+            <div class="result-content">
+                <div class="country-info">
+                    <img id="countryFlag" src="" alt="Bandera" class="flag">
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="label">Capital:</span>
+                            <span id="capital">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Regió:</span>
+                            <span id="region">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Población:</span>
+                            <span id="population">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Àrea:</span>
+                            <span id="area">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Moneda:</span>
+                            <span id="currency">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Llengua:</span>
+                            <span id="language">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comments-section">
+                    <h3>💬 Comentaris de la comunitat</h3>
+                    <div class="add-comment">
+                        <textarea 
+                            id="commentText" 
+                            placeholder="Afegeix un comentari..." 
+                            maxlength="200"
+                            rows="3"
+                        ></textarea>
+                        <button onclick="addComment()" class="btn btn-primary">Publicar comentari</button>
+                    </div>
+                    <div id="commentsList" class="comments-list"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="dashboard">
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <h3>⭐ Els meus Favorits</h3>
+                    <div id="favoritesList" class="items-list"></div>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>📌 Wishlist</h3>
+                    <div id="wishlistList" class="items-list"></div>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>🔍 Historial de cerques</h3>
+                    <div id="historyList" class="items-list"></div>
+                </div>
+            </div>
+        </section>
+
+        <div id="notification" class="notification"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
