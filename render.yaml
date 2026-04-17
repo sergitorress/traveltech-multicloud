@@ -1,0 +1,38 @@
+services:
+  - type: web
+    name: traveltech-frontend
+    env: node
+    plan: free
+    buildCommand: "npm install"
+    startCommand: "npm start"
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+
+  - type: web
+    name: traveltech-wishlist
+    env: node
+    plan: free
+    buildCommand: "npm install"
+    startCommand: "npm start"
+    root: service-wishlist
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3002
+
+  - type: web
+    name: traveltech-comments
+    env: node
+    plan: free
+    buildCommand: "npm install"
+    startCommand: "npm start"
+    root: service-comments
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3003
