@@ -1,3 +1,66 @@
+# TravelTech MultiCloud
+
+Plataforma web de planificación de viajes con arquitectura de microservicios.
+
+## Descripción
+
+Aplicación que permite:
+- Buscar información de países (REST Countries API)
+- Gestionar favoritos
+- Crear wishlists  
+- Compartir comentarios
+
+## Estructura
+
+```
+frontend/          → Render (Puerto 3000)
+service-favorites/ → Local (Puerto 3001)
+service-wishlist/  → Railway (Puerto 3002)
+service-comments/  → Railway (Puerto 3003)
+```
+
+## Instalación Local
+
+```bash
+# Frontend
+cd frontend && npm install && npm start
+
+# Servicios (en terminales separadas)
+cd service-favorites && npm install && npm start
+cd service-wishlist && npm install && npm start
+cd service-comments && npm install && npm start
+```
+
+Acceder a: `http://localhost:3000`
+
+## Despliegue
+
+### Frontend en Render
+1. https://dashboard.render.com → New → Web Service
+2. Deploy from GitHub: `frontend/` directory
+3. Build: `npm install`
+4. Start: `npm start`
+
+### Servicios en Railway
+1. https://railway.app → New Project → Deploy from GitHub
+2. Selecciona `service-wishlist` y `service-comments`
+3. Railway detecta automáticamente `package.json` y `Procfile`
+
+## API Endpoints
+
+| Servicio | Método | Endpoint |
+|----------|--------|----------|
+| Health | GET | `/health` |
+| Favorites | GET/POST/DELETE | `/api/favorites/:country` |
+| Wishlist | GET/POST/DELETE | `/api/wishlist/:country` |
+| Comments | GET/POST/DELETE | `/api/comments` |
+
+## Tecnologías
+
+- Node.js 22+
+- Express.js
+- CORS
+- REST Countries API
 # TravelTech MultiCloud - Plataforma de Planificació de Viatges
 
 ## � ENTREGA RÁPIDA
