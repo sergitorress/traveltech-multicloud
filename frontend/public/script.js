@@ -1,19 +1,16 @@
 // Configuració de microserveis (actualitzar amb URLs reals)
 const SERVICES = {
-    FAVORITES: 'http://localhost:3001',
     WISHLIST: 'https://service-wishlist-production.up.railway.app',
     COMMENTS: 'https://service-comments-production.up.railway.app',
     RESTCOUNTRIES: 'https://restcountries.com/v3.1'
 };
 
 let currentCountry = null;
-let favorites = [];
 let wishlist = [];
 let searchHistory = [];
 
 // inicialitzar l'aplicació
 document.addEventListener('DOMContentLoaded', () => {
-    loadFavorites();
     loadWishlist();
     loadSearchHistory();
     
@@ -128,106 +125,35 @@ function displayCountryInfo(country) {
         languages.length > 0 ? languages.join(', ') : 'N/A';
     
     // actualitzar estat dels botons
-    updateFavoriteButton();
+    // updateFavoriteButton(); // ELIMINADO
     updateWishlistButton();
     
     // scroll a la secció de resultats
     document.getElementById('resultSection').scrollIntoView({ behavior: 'smooth' });
 }
 
-// ===== FAVORITES SERVICE =====
+// ===== FAVORITES SERVICE - ELIMINADO =====
+/*
 async function toggleFavorite() {
-    if (!currentCountry) return;
-    
-    const countryName = currentCountry.name.common;
-    const isFavorite = favorites.includes(countryName);
-    
-    try {
-        const url = `${SERVICES.FAVORITES}/api/favorites/${countryName}`;
-        const method = isFavorite ? 'DELETE' : 'POST';
-        
-        const response = await fetch(url, {
-            method: method,
-            headers: { 'Content-Type': 'application/json' },
-            body: !isFavorite ? JSON.stringify({ 
-                name: countryName,
-                data: currentCountry 
-            }) : undefined
-        });
-        
-        if (response.ok) {
-            if (isFavorite) {
-                favorites = favorites.filter(f => f !== countryName);
-                showNotification('Eliminat de Favorits', 'success');
-            } else {
-                favorites.push(countryName);
-                showNotification('Afegit a Favorits!', 'success');
-            }
-            updateFavoriteButton();
-            displayFavorites();
-        }
-    } catch (error) {
-        console.error('Error:', error);
-        showNotification('Error al processar favorit', 'error');
-    }
+    // ELIMINADO - No desplegado en Railway
 }
 
 function updateFavoriteButton() {
-    const btn = document.querySelector('.btn-favorite');
-    if (currentCountry && favorites.includes(currentCountry.name.common)) {
-        btn.classList.add('active');
-    } else {
-        btn.classList.remove('active');
-    }
+    // ELIMINADO - No desplegado en Railway
 }
 
 async function loadFavorites() {
-    try {
-        const response = await fetch(`${SERVICES.FAVORITES}/api/favorites`);
-        if (response.ok) {
-            favorites = await response.json();
-            displayFavorites();
-        }
-    } catch (error) {
-        console.error('Error loading favorites:', error);
-    }
+    // ELIMINADO - No desplegado en Railway
 }
 
 function displayFavorites() {
-    const favoritesList = document.getElementById('favoritesList');
-    
-    if (favorites.length === 0) {
-        favoritesList.innerHTML = '<div class="empty-message">No hi ha favorits</div>';
-        return;
-    }
-    
-    favoritesList.innerHTML = favorites.map(fav => `
-        <div class="item">
-            <span class="item-name">⭐ ${fav}</span>
-            <div class="item-actions">
-                <button class="remove-btn" onclick="removeFavorite('${fav}')">Treure</button>
-            </div>
-        </div>
-    `).join('');
+    // ELIMINADO - No desplegado en Railway
 }
 
 async function removeFavorite(countryName) {
-    try {
-        const response = await fetch(
-            `${SERVICES.FAVORITES}/api/favorites/${countryName}`,
-            { method: 'DELETE' }
-        );
-        
-        if (response.ok) {
-            favorites = favorites.filter(f => f !== countryName);
-            displayFavorites();
-            updateFavoriteButton();
-            showNotification('Eliminat de Favorits', 'success');
-        }
-    } catch (error) {
-        console.error('Error:', error);
-    }
+    // ELIMINADO - No desplegado en Railway
 }
+*/
 
 // ===== WISHLIST SERVICE =====
 async function toggleWishlist() {
