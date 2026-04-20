@@ -1,0 +1,103 @@
+╔════════════════════════════════════════════════════════════════╗
+║                    DEPLOY A RAILWAY - FINAL                   ║
+║                                                                ║
+║                    Sin guías, sin opciones                     ║
+║                    Solo CLICK CLICK CLICK y listo              ║
+╚════════════════════════════════════════════════════════════════╝
+
+
+✅ LO QUE HEMOS PREPARADO:
+
+   ✓ Frontend en Render (ya está)
+   ✓ service-wishlist/ listo
+   ✓ service-comments/ listo
+   ✓ Procfiles en cada servicio
+   ✓ package.json en cada servicio
+
+
+══════════════════════════════════════════════════════════════════
+PASO 1: SERVICIO WISHLIST EN RAILWAY
+══════════════════════════════════════════════════════════════════
+
+1. Abre: https://railway.app/dashboard
+2. Click: "+ New Project"
+3. Click: "Deploy from GitHub"
+4. Selecciona: "traveltech-multicloud"
+
+EN LA SIGUIENTE PANTALLA:
+5. Busca en el árbol: "service-wishlist"
+6. Marca SOLO esa carpeta (desmarca todo lo demás)
+7. Click: "Deploy" o "Confirm"
+
+ESPERA 3-5 MINUTOS A QUE CONSTRUYA
+
+Cuando termine, verás una URL como:
+   https://service-wishlist-ab12cd34.railway.app
+
+COPIA ESA URL
+
+
+══════════════════════════════════════════════════════════════════
+PASO 2: SERVICIO COMMENTS EN RAILWAY
+══════════════════════════════════════════════════════════════════
+
+Repite EXACTAMENTE lo mismo:
+
+1. Click: "+ New Project"
+2. Click: "Deploy from GitHub"
+3. Selecciona: "traveltech-multicloud"
+4. Marca SOLO: "service-comments"
+5. Click: "Deploy"
+
+ESPERA 3-5 MINUTOS
+
+Verás una URL como:
+   https://service-comments-xy98zw76.railway.app
+
+COPIA ESA URL
+
+
+══════════════════════════════════════════════════════════════════
+PASO 3: ACTUALIZAR EL FRONTEND
+══════════════════════════════════════════════════════════════════
+
+Abre Terminal/PowerShell en la carpeta del proyecto y ejecuta:
+
+   node update-frontend-urls.js
+
+Te pedirá:
+   📌 URL de service-wishlist: [PEGA LA URL DEL PASO 1]
+   💬 URL de service-comments: [PEGA LA URL DEL PASO 2]
+
+Después automáticamente:
+   git add .
+   git commit -m "Update service URLs"
+   git push
+
+Render detecta el cambio y redeploya en 2 minutos.
+
+
+══════════════════════════════════════════════════════════════════
+PASO 4: VERIFICAR QUE FUNCIONA
+══════════════════════════════════════════════════════════════════
+
+Abre: https://traveltech-frontend-06xs.onrender.com
+
+Busca: "Spain"
+
+Deberías ver:
+   ✓ Bandera y info del país
+   ✓ Botones funcionando
+   ✓ Favoritos, Wishlist, Comentarios guardándose
+
+FIN.
+
+
+══════════════════════════════════════════════════════════════════
+
+Si falla algo:
+- Screenshot + error
+- Dime en qué paso falló
+
+Si todo funciona:
+- 🎉 ¡Ya está!

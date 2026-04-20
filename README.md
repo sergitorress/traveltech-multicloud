@@ -1,12 +1,38 @@
 # TravelTech MultiCloud
 
+**Lee primero:** [DEPLOY-FINAL.txt](DEPLOY-FINAL.txt)
+
+## Quick Start
+
+1. **Frontend:** Ya está en Render
+   - https://traveltech-frontend-06xs.onrender.com
+
+2. **Servicios:** Sube a Railway
+   - `service-wishlist/` 
+   - `service-comments/`
+
+3. **URLs:** Necesitas 2 URLs de Railway
+
+4. **Update:** Ejecuta `node update-frontend-urls.js`
+
+## Desarrollo Local
+
+```bash
+cd service-wishlist && npm start      # Puerto 3002
+cd service-comments && npm start      # Puerto 3003
+cd frontend && npm start              # Puerto 3000
+```
+
+## Estructura
+
+```
+frontend/              → Render (frontal web)
+service-wishlist/      → Railway (API)
+service-comments/      → Railway (API)
+```
+# TravelTech MultiCloud
+
 Plataforma web de planificación de viajes con arquitectura de microservicios.
-
-## 🚀 Usar la Aplicación
-
-**Deployada en Render**: https://traveltech-frontend-06xs.onrender.com/
-
-Ver [USAR_APLICACION.md](USAR_APLICACION.md) para instrucciones de uso completas.
 
 ## Descripción
 

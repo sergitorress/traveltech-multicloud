@@ -1,0 +1,52 @@
+{
+  "services": {
+    "wishlist": {
+      "root": "service-wishlist",
+      "buildCommand": "npm install",
+      "startCommand": "npm start"
+    },
+    "comments": {
+      "root": "service-comments",
+      "buildCommand": "npm install",
+      "startCommand": "npm start"
+    }
+  }
+}
+{
+  "$schema": "https://railway.app/railway.schema.json",
+  "services": {
+    "frontend": {
+      "builder": "nixpacks",
+      "startCommand": "cd frontend && npm start",
+      "rootDirectory": "frontend",
+      "watch": ["frontend"]
+    },
+    "service-wishlist": {
+      "builder": "nixpacks",
+      "startCommand": "cd service-wishlist && npm start",
+      "rootDirectory": "service-wishlist",
+      "watch": ["service-wishlist"],
+      "envVariables": {
+        "PORT": "3002"
+      }
+    },
+    "service-comments": {
+      "builder": "nixpacks",
+      "startCommand": "cd service-comments && npm start",
+      "rootDirectory": "service-comments",
+      "watch": ["service-comments"],
+      "envVariables": {
+        "PORT": "3003"
+      }
+    },
+    "service-favorites": {
+      "builder": "nixpacks",
+      "startCommand": "cd service-favorites && npm start",
+      "rootDirectory": "service-favorites",
+      "watch": ["service-favorites"],
+      "envVariables": {
+        "PORT": "3001"
+      }
+    }
+  }
+}
