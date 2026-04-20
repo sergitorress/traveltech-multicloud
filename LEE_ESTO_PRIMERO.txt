@@ -1,0 +1,114 @@
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║               👋 LEE ESTO PRIMERO - GUÍA PARA DESPLEGAR                   ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+Tu proyecto está 100% listo. Ahora necesitas 3 cosas para desplegarlo:
+
+═══════════════════════════════════════════════════════════════════════════════
+                              OPCIÓN 1: FÁCIL
+═══════════════════════════════════════════════════════════════════════════════
+
+Si NO entiendes nada de Git ni GitHub, abre esto:
+
+📄 DEPLOYMENT_GUIDE.html
+
+Es una página web interactiva que te guía paso a paso. Solo:
+1. Haz doble click en DEPLOYMENT_GUIDE.html
+2. Se abre en tu navegador
+3. Sigue los pasos en la interfaz gráfica
+
+═══════════════════════════════════════════════════════════════════════════════
+                          OPCIÓN 2: SEMI-AUTOMÁTICA
+═══════════════════════════════════════════════════════════════════════════════
+
+Si entiendes algo de PowerShell, ejecuta:
+
+1. Abre PowerShell en la carpeta del proyecto
+2. Ejecuta:
+
+   .\deploy.ps1
+
+3. Te hará preguntas interactivas
+4. Te guiará para hacer push a GitHub
+
+═══════════════════════════════════════════════════════════════════════════════
+                           OPCIÓN 3: MANUAL
+═══════════════════════════════════════════════════════════════════════════════
+
+Si quieres aprender, lee:
+
+📄 DEPLOYMENT_SIMPLE.txt
+
+Tiene todos los comandos exactos que necesitas copiar y pegar.
+
+═══════════════════════════════════════════════════════════════════════════════
+                         ¿CUÁL DEBO ELEGIR?
+═══════════════════════════════════════════════════════════════════════════════
+
+Recomendación por perfil:
+
+👤 PERFIL: "No entiendo nada de programación"
+   → Usa: DEPLOYMENT_GUIDE.html (es lo más fácil)
+
+👤 PERFIL: "Entiendo algo de comandos"
+   → Usa: deploy.ps1 (semi-automático)
+
+👤 PERFIL: "Quiero aprender mientras despliego"
+   → Usa: DEPLOYMENT_SIMPLE.txt (manual con explicaciones)
+
+═══════════════════════════════════════════════════════════════════════════════
+                    RESUMEN ULTRA-RÁPIDO (30 minutos)
+═══════════════════════════════════════════════════════════════════════════════
+
+PASO 1: GitHub (5 min)
+   • Abre: https://github.com/signup
+   • Crea cuenta con usuario: micronigga
+   • Crea repositorio: traveltech-multicloud
+
+PASO 2: Push (5 min)
+   • En PowerShell ejecuta: git push -u origin main
+   • Cuando pida contraseña, usa un token de GitHub
+
+PASO 3: Render (15 min)
+   • Abre: https://render.com
+   • Crea 3 Web Services (Frontend, Wishlist, Comments)
+   • Obtén las 3 URLs que te genera
+
+PASO 4: Actualizar URLs (5 min)
+   • En VS Code, abre: frontend/public/script.js
+   • Reemplaza las URLs locales con las de Render
+
+PASO 5: Verificar (0 min)
+   • Abre tu URL en el navegador
+   • ¡Listo! 🎉
+
+═══════════════════════════════════════════════════════════════════════════════
+                           ARCHIVOS QUE TENGO
+═══════════════════════════════════════════════════════════════════════════════
+
+PARA DESPLEGAR (elige uno):
+  ✓ DEPLOYMENT_GUIDE.html         → Interfaz gráfica (RECOMENDADO)
+  ✓ deploy.ps1                    → Script automático
+  ✓ DEPLOYMENT_SIMPLE.txt         → Comandos manuales
+
+DOCUMENTACIÓN:
+  ✓ README.md                     → Documentación general
+  ✓ NEXT_STEPS.md                 → Pasos detallados
+  ✓ CLOUD_DEPLOYMENT.md           → Guía de nube profesional
+  ✓ QUICK_START.md                → Inicio rápido local
+
+═══════════════════════════════════════════════════════════════════════════════
+                        ¡VAMOS! ¿POR DÓNDE EMPIEZO?
+═══════════════════════════════════════════════════════════════════════════════
+
+1️⃣  HAGA DOBLE CLIC EN: DEPLOYMENT_GUIDE.html
+
+   (Si eso no funciona, lee DEPLOYMENT_SIMPLE.txt)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+¿Preguntas? Toda la información la encontrarás en los archivos .txt y .md
+
+¡Buena suerte! 🚀
