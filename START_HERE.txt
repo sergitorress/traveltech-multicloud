@@ -1,25 +1,45 @@
 ╔═══════════════════════════════════════════════════════════════╗
 ║                                                               ║
-║        🎉  BIENVENIDO A TRAVELTECH MULTICLOUD  🎉            ║
-║                                                               ║
-║  Plataforma de planificació de viatges amb arquitectura      ║
-║              de microserveis multi-cloud                      ║
+║  👋 HOLA! AQUÍ ESTÁN LAS 3 FORMAS DE DESPLEGAR              ║
 ║                                                               ║
 ╚═══════════════════════════════════════════════════════════════╝
 
-📋 PROJECTE COMPLET ENTREGAT
-═══════════════════════════════════════════════════════════════
+⏱️  OPCIÓN 1: GRÁFICA (La más fácil - 20 minutos)
+───────────────────────────────────────────────
+📍 Doble click en: DEPLOYMENT_GUIDE.html
+→ Se abre en tu navegador
+→ Sigue los pasos con botones
+→ ¡Listo!
 
-✅ Frontend web funcional
-✅ 3 microserveis independents (Favorites, Wishlist, Comments)
-✅ API externa integrada (REST Countries)
-✅ Arquitectura multi-cloud (Render, Railway, Fly.io)
-✅ Documentació completa (9 documents)
-✅ Tests i validació
-✅ GitHub workflow setup
-✅ Desplegament automatitzat
+⏱️  OPCIÓN 2: AUTOMÁTICA (15 minutos)
+──────────────────────────────────
+📍 En PowerShell ejecuta: .\deploy.ps1
+→ Te hace preguntas interactivas
+→ Sube a GitHub automáticamente
+→ ¡Listo!
 
-═══════════════════════════════════════════════════════════════
+⏱️  OPCIÓN 3: MANUAL (25 minutos + aprendes)
+────────────────────────────────────────
+📍 Lee: DEPLOYMENT_SIMPLE.txt
+→ Copia y pega los comandos
+→ Explica qué hace cada cosa
+→ ¡Listo!
+
+════════════════════════════════════════════════════════════════
+
+❓ ¿CUÁL DEBO ELEGIR?
+
+Sin experiencia técnica     → Opción 1 (Gráfica)
+Algo de experiencia        → Opción 2 (Automática)
+Quiero aprender            → Opción 3 (Manual)
+
+════════════════════════════════════════════════════════════════
+
+📝 DOCUMENTACIÓN COMPLETA DISPONIBLE
+───────────────────────────────────
+LEE_ESTO_PRIMERO.txt       → Guía de inicio
+FILE_INDEX.txt             → Mapa de archivos
+README.md                  → Documentación general
 
 🚀 POSADA EN MARXA (Escull una opció)
 ───────────────────────────────────────────────────────────────
