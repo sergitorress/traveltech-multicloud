@@ -1,0 +1,90 @@
+RAILWAY DEPLOY - PASOS EXACTOS (SIN ROOT DIRECTORY)
+═══════════════════════════════════════════════════════════════
+
+SITUACIÓN: No ves opción "Root Directory" en Railway
+SOLUCIÓN: Usa este método alternativo
+
+╔════════════════════════════════════════════════════════════════╗
+MÉTODO 1: DEPLOY DIRECTO DESDE CARPETA
+╚════════════════════════════════════════════════════════════════╝
+
+EN TU COMPUTADORA (Terminal/PowerShell):
+
+1. Instala Railway CLI:
+   npm install -g @railway/cli
+
+2. Login en Railway:
+   railway login
+
+3. Para SERVICE-WISHLIST:
+   
+   cd service-wishlist
+   railway init
+   (selecciona: Create a new project)
+   railway up
+   
+   ⏳ Espera 2-3 minutos
+
+4. Para SERVICE-COMMENTS:
+
+   cd ../service-comments
+   railway init
+   (selecciona: Create a new project)
+   railway up
+   
+   ⏳ Espera 2-3 minutos
+
+5. Ver URLs:
+   railway open
+   (Verás la URL pública del servicio)
+
+═══════════════════════════════════════════════════════════════
+
+MÉTODO 2: DEPLOY VÍA WEB UI (SI TIENES GITHUB CONECTADO)
+═══════════════════════════════════════════════════════════════
+
+1. Ve a: https://railway.app/dashboard
+2. Click: "New Project"
+3. Click: "Deploy from GitHub"
+4. Busca: "traveltech-multicloud"
+5. EN LA INTERFAZ DE SELECCIÓN:
+   - Deberías ver: package.json, frontend/, service-wishlist/, etc.
+   - HABILITA SOLO: service-wishlist/
+   - Click: "Deploy"
+
+   ⏳ Espera a que compile (2-3 min)
+
+6. Cuando termine:
+   - Haz click en el proyecto
+   - Busca: "Deployment"
+   - La URL pública está en "Domains"
+
+7. Repite EXACTAMENTE lo mismo para service-comments
+
+═══════════════════════════════════════════════════════════════
+
+CUANDO TENGAS LAS 2 URLS:
+─────────────────────────────────────────────────────────────
+
+Escribe aquí las URLs que Railway te da:
+
+SERVICE-WISHLIST:   ________________________________________
+
+SERVICE-COMMENTS:   ________________________________________
+
+Y luego ejecuta EN TU COMPUTADORA:
+
+   node update-frontend-urls.js
+
+Y pega las URLs cuando te lo pida.
+
+═══════════════════════════════════════════════════════════════
+
+SI FALLA EN RAILWAY:
+
+- Verifica que vea los Procfiles ✓
+- Verifica que vea package.json ✓
+- Mira el log de errores en Railway
+- Si dice "Cannot find module", ejecuta: npm install
+
+═══════════════════════════════════════════════════════════════
