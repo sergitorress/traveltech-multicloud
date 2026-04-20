@@ -132,7 +132,7 @@ app.get('/health', (req, res) => {
     });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`💬 Comments Service escoltant al port ${PORT}`);
     console.log(`Comentaris actius: 0`);
 });

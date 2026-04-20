@@ -86,7 +86,7 @@ app.get('/health', (req, res) => {
     });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`📌 Wishlist Service escoltant al port ${PORT}`);
     console.log(`Base de dades: ${wishlist.length} entrades`);
 });
