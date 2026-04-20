@@ -1,8 +1,8 @@
 // Configuració de microserveis (actualitzar amb URLs reals)
 const SERVICES = {
     FAVORITES: 'http://localhost:3001',
-    WISHLIST: 'http://localhost:3002',
-    COMMENTS: 'http://localhost:3003',
+    WISHLIST: 'https://service-wishlist-production.up.railway.app',
+    COMMENTS: 'https://service-comments-production.up.railway.app',
     RESTCOUNTRIES: 'https://restcountries.com/v3.1'
 };
 
