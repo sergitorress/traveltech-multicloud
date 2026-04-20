@@ -1,0 +1,142 @@
+╔════════════════════════════════════════════════════════════════════╗
+║                                                                    ║
+║   ✨ TRAVELTECH MULTICLOUD - GUÍA DE INICIO RÁPIDO               ║
+║                                                                    ║
+║   Tu proyecto está 100% listo. Solo falta desplegar.             ║
+║                                                                    ║
+╚════════════════════════════════════════════════════════════════════╝
+
+💰 OPCIÓN MÁS ECONÓMICA - SIN COSTO
+════════════════════════════════════════════════════════════════════
+
+👉 LEE PRIMERO: DEPLOYMENT_FREE.md
+
+Este archivo explica 3 formas de desplegar GRATIS:
+  1. TODO en 1 app (Render) - Más fácil
+  2. 4 servicios en Railway - Gratis y fácil
+  3. 4 servicios en Fly.io - También gratis
+
+🚨 EVITA PAGAR DINERO
+────────────────────
+❌ NO crees 4 servicios separados en Render 
+   (Solo 1 es gratis, el resto cuestan)
+✅ Sigue la guía DEPLOYMENT_FREE.md
+   (Explica cómo no gastar)
+
+════════════════════════════════════════════════════════════════════
+
+🚀 PASOS RÁPIDOS
+════════════════════════════════════════════════════════════════════
+
+PASO 1: Verifica que funciona en LOCAL (5 minutos)
+──────────────────────────────────────────────────
+
+Terminal 1 - FRONTEND:
+  cd frontend
+  npm install
+  npm start
+  → Abre: http://localhost:3000
+
+Terminal 2 - FAVORITES:
+  cd service-favorites
+  npm install
+  npm start
+
+Terminal 3 - WISHLIST:
+  cd service-wishlist
+  npm install
+  npm start
+
+Terminal 4 - COMMENTS:
+  cd service-comments
+  npm install
+  npm start
+
+Si todo corre sin errores → ¡Sigue al paso 2!
+
+PASO 2: Desplegar en la nube (30 minutos)
+──────────────────────────────────────────
+
+Lee: DEPLOYMENT_FREE.md
+
+Y sigue UNA de estas opciones:
+  • Railway (RECOMENDADO - más fácil)
+  • Render (también bueno)
+  • Fly.io (más avanzado)
+
+════════════════════════════════════════════════════════════════════
+
+📚 DOCUMENTACIÓN
+════════════════════════════════════════════════════════════════════
+
+DEPLOYMENT_FREE.md          ← Cómo desplegar GRATIS ⭐ LEE ESTO
+README.md                   ← Documentación general
+FILE_INDEX.txt              ← Mapa de archivos del proyecto
+ARCHITECTURE.md             ← Diseño técnico
+TESTING.md                  ← Cómo probar
+
+════════════════════════════════════════════════════════════════════
+
+❓ PREGUNTAS COMUNES
+════════════════════════════════════════════════════════════════════
+
+P: ¿Render es realmente gratis?
+R: Sí, 1 app es gratis siempre. Para 4 apps debes pagar.
+   Por eso usa Railway (es gratis para varias apps).
+
+P: ¿Tengo que usar tarjeta de crédito?
+R: Railway pide pero te da crédito gratuito.
+   Render no pide. Fly.io tampoco.
+
+P: ¿Dónde están mis datos?
+R: En memoria (se pierden si la app se reinicia).
+   Para proyectos serios, usa una base de datos.
+
+P: ¿Puedo cambiar después de desplegar?
+R: Sí. Puedes mover entre plataformas.
+
+════════════════════════════════════════════════════════════════════
+
+🔗 LINKS IMPORTANTES
+════════════════════════════════════════════════════════════════════
+
+GitHub:    https://github.com/sergitorress/traveltech-multicloud
+Railway:   https://railway.app
+Render:    https://render.com
+Fly.io:    https://fly.io
+
+════════════════════════════════════════════════════════════════════
+
+✅ LISTA DE VERIFICACIÓN
+════════════════════════════════════════════════════════════════════
+
+Antes de desplegar, verifica:
+
+☐ Todos los 4 servicios funcionan en localhost
+☐ Frontend se ve correctamente
+☐ Las APIs responden (http://localhost:3000/health)
+☐ Código está en GitHub: sergitorress/traveltech-multicloud
+☐ Has elegido una plataforma: Railway / Render / Fly.io
+
+════════════════════════════════════════════════════════════════════
+
+🎯 PRÓXIMO PASO
+════════════════════════════════════════════════════════════════════
+
+1. Lee: DEPLOYMENT_FREE.md
+2. Sigue los pasos para Railway (o tu opción)
+3. ¡Listo! Tu app estará en internet
+
+════════════════════════════════════════════════════════════════════
+
+💡 TIPS
+════════════════════════════════════════════════════════════════════
+
+• Prueba TODO en local antes de desplegar
+• Usa Railway si quieres la forma más fácil
+• Si algo falla, mira los logs en la plataforma
+• Pregunta antes de usar tarjeta de crédito
+
+════════════════════════════════════════════════════════════════════
+
+Éxito con tu proyecto! 🚀

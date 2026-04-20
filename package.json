@@ -1,0 +1,31 @@
+{
+  "name": "traveltech-multicloud",
+  "version": "1.0.0",
+  "description": "TravelTech MultiCloud Platform - Complete Travel Planning Solution with Microservices",
+  "main": "server-aggregated.js",
+  "scripts": {
+    "start": "node server-aggregated.js",
+    "dev": "node server-aggregated.js",
+    "install:all": "npm install && cd frontend && npm install && cd ../service-favorites && npm install && cd ../service-wishlist && npm install && cd ../service-comments && npm install",
+    "test": "echo 'Testing...' && npm run health",
+    "health": "curl http://localhost:3000/health"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "uuid": "^9.0.0",
+    "dotenv": "^16.0.3"
+  },
+  "engines": {
+    "node": "14.x || 16.x || 18.x"
+  },
+  "author": "",
+  "license": "MIT",
+  "keywords": [
+    "travel",
+    "microservices",
+    "multicloud",
+    "express",
+    "nodejs"
+  ]
+}
