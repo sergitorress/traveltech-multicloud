@@ -1,0 +1,155 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                                                                            ║
+║                 🚀 RAILWAY DEPLOYMENT - INSTRUCCIONES FINALES             ║
+║                                                                            ║
+║  Frontend: Render ✅ (https://traveltech-frontend-06xs.onrender.com/)     ║
+║  Wishlist: Railway ⏳                                                      ║
+║  Comments: Railway ⏳                                                      ║
+║                                                                            ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+════════════════════════════════════════════════════════════════════════════
+PASO 1: DESPLEGAR EN RAILWAY
+════════════════════════════════════════════════════════════════════════════
+
+1. Abre: https://railway.app
+2. Click: "New Project"
+3. Selecciona: "Deploy from GitHub repo"
+4. Busca y selecciona: sergitorress/traveltech-multicloud
+5. Railway va a mostrar 4 servicios:
+   - ☐ DESELECCIONA: frontend
+   - ☑ DEJA MARCADO: service-wishlist
+   - ☑ DEJA MARCADO: service-comments
+6. Click: "Deploy"
+7. ESPERA a que vea "Deployment successful" ✅
+
+⏱️ TIEMPO: 5-10 minutos
+
+════════════════════════════════════════════════════════════════════════════
+PASO 2: COPIAR LAS URLs
+════════════════════════════════════════════════════════════════════════════
+
+EN TU BROWSER (Railway Dashboard):
+
+1. Click en "service-wishlist" (en el panel de servicios)
+2. Busca "Public URL" en la parte superior
+3. COPIA y GUARDA en un bloc de notas
+
+   Ejemplo: https://service-wishlist-abc123.railway.app
+
+4. Regresa al proyecto
+5. Click en "service-comments"
+6. Busca "Public URL"
+7. COPIA y GUARDA en el bloc de notas
+
+   Ejemplo: https://service-comments-xyz789.railway.app
+
+⏱️ TIEMPO: 2 minutos
+
+════════════════════════════════════════════════════════════════════════════
+PASO 3: EJECUTAR SCRIPT PARA ACTUALIZAR FRONTEND
+════════════════════════════════════════════════════════════════════════════
+
+EN TU TERMINAL (en la carpeta del proyecto):
+
+Ejecuta este comando (TODO EN UNA LÍNEA):
+
+node update-railway-urls.js https://service-wishlist-ABC.railway.app https://service-comments-XYZ.railway.app
+
+DONDE:
+  - ABC = el código que copiaste de service-wishlist
+  - XYZ = el código que copiaste de service-comments
+
+EJEMPLO COMPLETO:
+
+node update-railway-urls.js https://service-wishlist-pr8f7n.railway.app https://service-comments-2m3g8p.railway.app
+
+EL SCRIPT DIRÁ: ✅ URLs ACTUALIZADAS EN frontend/public/script.js
+
+⏱️ TIEMPO: 1 minuto
+
+════════════════════════════════════════════════════════════════════════════
+PASO 4: PUSH A GITHUB
+════════════════════════════════════════════════════════════════════════════
+
+EN TU TERMINAL, ejecuta:
+
+git add frontend/public/script.js
+git commit -m "Update Railway service URLs"
+git push
+
+VERIFICA QUE DIGA: main -> main ✅
+
+⏱️ TIEMPO: 1 minuto
+
+════════════════════════════════════════════════════════════════════════════
+PASO 5: ESPERAR REDEPLOY DE RENDER
+════════════════════════════════════════════════════════════════════════════
+
+EN TU BROWSER:
+
+1. Abre: https://dashboard.render.com
+2. Click en tu app: "traveltech-frontend"
+3. ESPERA a que aparezca "Deployed" (letras verdes)
+
+NO HAGAS NADA - Render automáticamente detecta el cambio en GitHub
+
+⏱️ TIEMPO: 3-5 minutos
+
+════════════════════════════════════════════════════════════════════════════
+PASO 6: VERIFICACIÓN FINAL
+════════════════════════════════════════════════════════════════════════════
+
+1. Abre: https://traveltech-frontend-06xs.onrender.com/
+2. Busca un país (escribe "Spain" o cualquier país)
+3. Verifica QUE TODO FUNCIONE:
+
+   ✓ El país aparece con datos (capital, población, bandera)
+   ✓ Puedo agregar a "Favoritos" (sin errores en consola)
+   ✓ Puedo agregar a "Wishlist" (sin errores en consola)
+   ✓ Puedo ver y escribir "Comentarios" (sin errores en consola)
+
+Si TODOS funcionan → ¡ÉXITO! 🎉
+
+⏱️ TIEMPO: 2 minutos
+
+════════════════════════════════════════════════════════════════════════════
+TIEMPO TOTAL: ~15-20 minutos
+════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════
+¿QUÉ PASÓ SI ALGO NO FUNCIONA?
+════════════════════════════════════════════════════════════════════════════
+
+PROBLEMA: Railway sigue en "pending"
+SOLUCIÓN: Espera 2-3 minutos más. Railway a veces tarda.
+
+PROBLEMA: Frontend no se actualiza
+SOLUCIÓN: 
+  1. En Render, entra a "traveltech-frontend"
+  2. Click "Redeploy latest commit" (botón rojo)
+  3. Espera a que diga "Deployed"
+
+PROBLEMA: "Cannot fetch from service" o error en consola
+SOLUCIÓN:
+  1. Verifica que copiaste las URLs EXACTAMENTE como aparecen
+  2. Abre en tu browser: https://service-wishlist-ABC.railway.app/health
+  3. Si responde JSON → el servicio funciona
+  4. Si no responde → espera a que Railway termine de desplegar
+
+PROBLEMA: Script dice "FALTAN ARGUMENTOS"
+SOLUCIÓN: Verifica que ejecutaste TODO en una línea, sin saltos
+
+════════════════════════════════════════════════════════════════════════════
+ARCHIVOS DE REFERENCIA EN EL REPO
+════════════════════════════════════════════════════════════════════════════
+
+Si necesitas más detalles, mira estos archivos:
+  - RAILWAY_QUICK_START.txt    → Versión extendida
+  - RAILWAY_SETUP.md           → Detalles técnicos
+  - CHECKLIST_RAILWAY.txt      → Paso a paso detallado
+  - update-railway-urls.js     → El script (puedes leerlo)
+
+════════════════════════════════════════════════════════════════════════════
+LISTO PARA EMPEZAR? VE A: https://railway.app
+════════════════════════════════════════════════════════════════════════════
