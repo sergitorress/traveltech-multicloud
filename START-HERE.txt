@@ -1,0 +1,51 @@
+INSTRUCCIÓN FINAL - SIN BULLSHIT
+═══════════════════════════════════════════════════════════════
+
+OPCIÓN 1: CLI (MÁS DIRECTO)
+─────────────────────────────────────────────────────────────
+
+1. Double-click en: DEPLOY-RAILWAY.bat
+2. Sigue los pasos (copiar token, esperar)
+3. Cuando termine, obtén las URLs
+
+
+OPCIÓN 2: MANUAL (SI EL .bat FALLA)
+─────────────────────────────────────────────────────────────
+
+Terminal/PowerShell:
+
+   npm install -g @railway/cli
+   
+   cd service-wishlist
+   railway init
+   railway up
+   
+   cd ../service-comments
+   railway init
+   railway up
+   
+Luego:
+   - Ve a https://railway.app/dashboard
+   - Copia las URLs de cada servicio
+
+
+DESPUÉS (AMBOS CASOS)
+─────────────────────────────────────────────────────────────
+
+1. Terminal:
+   node update-frontend-urls.js
+
+2. Pega las 2 URLs de Railway
+
+3. git push (automático)
+
+4. Listo. Abre: https://traveltech-frontend-06xs.onrender.com
+
+═══════════════════════════════════════════════════════════════
+
+¿No funciona?
+- Si error en .bat: usa OPCIÓN 2
+- Si error en railway: envía screenshot del error
+- Si falta token: https://railway.app/account/tokens
+
+FIN.
