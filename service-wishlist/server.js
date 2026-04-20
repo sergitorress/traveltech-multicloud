@@ -12,6 +12,11 @@ app.use(cors({
 }));
 app.use(express.json());
 
+// Health check for Railway
+app.get('/', (req, res) => {
+    res.json({ status: 'ok', service: 'wishlist', items: wishlist.length });
+});
+
 // Base de dades en memòria
 let wishlist = [];
 

@@ -13,6 +13,12 @@ app.use(cors({
 }));
 app.use(express.json());
 
+// Health check for Railway
+app.get('/', (req, res) => {
+    const totalComments = Object.values(comments).reduce((sum, arr) => sum + arr.length, 0);
+    res.json({ status: 'ok', service: 'comments', countries: Object.keys(comments).length, total: totalComments });
+});
+
 // Base de dades en memòria
 let comments = {};
 
