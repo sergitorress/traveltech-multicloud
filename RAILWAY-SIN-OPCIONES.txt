@@ -1,0 +1,54 @@
+RAILWAY SETUP - SIN OPCIONES CONFUSAS
+═══════════════════════════════════════════════════════════════
+
+⚠️  SI NO VES "Root Directory", usa este método:
+
+PASO 1: SERVICE-WISHLIST
+──────────────────────────────────────────────────────────────
+
+1. Ve a: https://railway.app/dashboard
+2. Click: "+ New Project"
+3. Click: "Deploy from GitHub"
+4. BUSCA Y SELECCIONA: traveltech-multicloud
+5. EN LA PANTALLA DE ARCHIVOS:
+   - Expande las carpetas (click en flechitas)
+   - Navega a: service-wishlist/
+   - Haz click en la carpeta service-wishlist/
+   - Click: "Deploy" o "Confirmar"
+
+6. Railway automáticamente:
+   ✓ Lee service-wishlist/package.json
+   ✓ Lee service-wishlist/Procfile (que hemos creado)
+   ✓ Ejecuta: npm start
+   ✓ Te da una URL pública
+
+7. ESPERA 2-3 minutos a que compile
+8. COPIA la URL que te da (tipo: https://service-wishlist-xxxxx.railway.app)
+
+PASO 2: SERVICE-COMMENTS
+──────────────────────────────────────────────────────────────
+
+Repite EXACTAMENTE lo mismo:
+- New Project
+- Deploy from GitHub
+- Selecciona: traveltech-multicloud
+- Navega a: service-comments/
+- Deploy
+
+Espera a que termine y COPIA la URL
+
+PASO 3: DIME LAS URLS
+──────────────────────────────────────────────────────────────
+
+Cuando tengas las 2 URLs, escribe aquí:
+
+  service-wishlist URL:  _________________________________
+  service-comments URL:  _________________________________
+
+Y yo actualizo automáticamente el Frontend en Render.
+
+═══════════════════════════════════════════════════════════════
+
+SI ALGO FALLA:
+- Envíame screenshot del error
+- O dime: "error en paso X"
