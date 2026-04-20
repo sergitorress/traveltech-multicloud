@@ -7,11 +7,10 @@ const app = express();
 const PORT = process.env.PORT || 3003;
 
 // Middleware
-const corsOptions = {
-    origin: ['https://traveltech-multicloud-f44q.onrender.com', 'https://traveltech-frontend-06xs.onrender.com', 'http://localhost:8080'],
-    credentials: true
-};
-app.use(cors(corsOptions));
+app.use(cors({
+    origin: '*',
+    credentials: false
+}));
 app.use(express.json());
 
 // Base de dades en memòria
