@@ -2,6 +2,12 @@
 
 Plataforma web de planificación de viajes con arquitectura de microservicios.
 
+## 🚀 Usar la Aplicación
+
+**Deployada en Render**: https://traveltech-frontend-06xs.onrender.com/
+
+Ver [USAR_APLICACION.md](USAR_APLICACION.md) para instrucciones de uso completas.
+
 ## Descripción
 
 Aplicación que permite:
