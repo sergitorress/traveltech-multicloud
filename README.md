@@ -1,6 +1,16 @@
 # TravelTech MultiCloud - Plataforma de Planificació de Viatges
 
-## 📋 Descripció del projecte
+## � ENTREGA RÁPIDA
+
+**Solo lo mínimo para aprobar:**
+- 📖 Lee: [ENTREGA_MINIMA.md](ENTREGA_MINIMA.md) 
+- 🆓 Sin costo: [DEPLOYMENT_FREE.md](DEPLOYMENT_FREE.md)
+- ⏱️ Tiempo: ~50 minutos para desplegar
+- 🎯 Plataforma recomendada: **Railway** (gratis, 4 servicios)
+
+---
+
+## �📋 Descripció del projecte
 
 TravelTech Solutions és una plataforma web moderna de planificació de viatges amb arquitectura de microserveis distribuïts en múltiples operadors cloud. Els usuaris poden cercar informació sobre paisos, gestionar favorits, crear wishlists i compartir comentaris amb la comunitat.
 
