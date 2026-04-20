@@ -1,17 +1,17 @@
-// Configuració de microserveis (actualitzar amb URLs reals)
+// Configuració API externa
 const SERVICES = {
-    WISHLIST: 'https://service-wishlist-production.up.railway.app',
-    COMMENTS: 'https://service-comments-production.up.railway.app',
     RESTCOUNTRIES: 'https://restcountries.com/v3.1'
 };
 
 let currentCountry = null;
 let wishlist = [];
+let comments = {}; // { countryName: [comments...] }
 let searchHistory = [];
 
 // inicialitzar l'aplicació
 document.addEventListener('DOMContentLoaded', () => {
     loadWishlist();
+    loadComments();
     loadSearchHistory();
     
     // event listeners
@@ -56,8 +56,8 @@ async function searchCountry() {
         // guardar a historial
         addToSearchHistory(country.name.common);
         
-        // carregar comentaris
-        await loadComments(country.name.common);
+        // carregar comentaris del país
+        displayCommentsForCountry(country.name.common);
         
     } catch (error) {
         console.error('Error:', error);
@@ -155,38 +155,24 @@ async function removeFavorite(countryName) {
 }
 */
 
-// ===== WISHLIST SERVICE =====
-async function toggleWishlist() {
+// ===== WISHLIST (LOCAL) =====
+function toggleWishlist() {
     if (!currentCountry) return;
     
     const countryName = currentCountry.name.common;
     const isInWishlist = wishlist.includes(countryName);
     
-    try {
-        const url = `${SERVICES.WISHLIST}/api/wishlist/${countryName}`;
-        const method = isInWishlist ? 'DELETE' : 'POST';
-        
-        const response = await fetch(url, {
-            method: method,
-            headers: { 'Content-Type': 'application/json' },
-            body: !isInWishlist ? JSON.stringify({ name: countryName }) : undefined
-        });
-        
-        if (response.ok) {
-            if (isInWishlist) {
-                wishlist = wishlist.filter(w => w !== countryName);
-                showNotification('Eliminat de Wishlist', 'success');
-            } else {
-                wishlist.push(countryName);
-                showNotification('Afegit a Wishlist!', 'success');
-            }
-            updateWishlistButton();
-            displayWishlist();
-        }
-    } catch (error) {
-        console.error('Error:', error);
-        showNotification('Error al processar wishlist', 'error');
+    if (isInWishlist) {
+        wishlist = wishlist.filter(w => w !== countryName);
+        showNotification('Eliminat de Wishlist', 'success');
+    } else {
+        wishlist.push(countryName);
+        showNotification('Afegit a Wishlist!', 'success');
     }
+    
+    saveWishlist();
+    updateWishlistButton();
+    displayWishlist();
 }
 
 function updateWishlistButton() {
@@ -198,16 +184,16 @@ function updateWishlistButton() {
     }
 }
 
-async function loadWishlist() {
-    try {
-        const response = await fetch(`${SERVICES.WISHLIST}/api/wishlist`);
-        if (response.ok) {
-            wishlist = await response.json();
-            displayWishlist();
-        }
-    } catch (error) {
-        console.error('Error loading wishlist:', error);
+function loadWishlist() {
+    const stored = localStorage.getItem('wishlist');
+    if (stored) {
+        wishlist = JSON.parse(stored);
+        displayWishlist();
     }
+}
+
+function saveWishlist() {
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
 }
 
 function displayWishlist() {
@@ -228,26 +214,16 @@ function displayWishlist() {
     `).join('');
 }
 
-async function removeFromWishlist(countryName) {
-    try {
-        const response = await fetch(
-            `${SERVICES.WISHLIST}/api/wishlist/${countryName}`,
-            { method: 'DELETE' }
-        );
-        
-        if (response.ok) {
-            wishlist = wishlist.filter(w => w !== countryName);
-            displayWishlist();
-            updateWishlistButton();
-            showNotification('Eliminat de Wishlist', 'success');
-        }
-    } catch (error) {
-        console.error('Error:', error);
-    }
+function removeFromWishlist(countryName) {
+    wishlist = wishlist.filter(w => w !== countryName);
+    saveWishlist();
+    displayWishlist();
+    updateWishlistButton();
+    showNotification('Eliminat de Wishlist', 'success');
 }
 
-// ===== COMMENTS SERVICE =====
-async function addComment() {
+// ===== COMMENTS (LOCAL) =====
+function addComment() {
     if (!currentCountry) return;
     
     const commentText = document.getElementById('commentText').value.trim();
@@ -256,41 +232,38 @@ async function addComment() {
         return;
     }
     
-    try {
-        const response = await fetch(`${SERVICES.COMMENTS}/api/comments`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                country: currentCountry.name.common,
-                text: commentText,
-                timestamp: new Date().toISOString()
-            })
-        });
-        
-        if (response.ok) {
-            document.getElementById('commentText').value = '';
-            showNotification('Comentari publicat!', 'success');
-            await loadComments(currentCountry.name.common);
-        }
-    } catch (error) {
-        console.error('Error:', error);
-        showNotification('Error al publicar comentari', 'error');
+    const countryName = currentCountry.name.common;
+    
+    if (!comments[countryName]) {
+        comments[countryName] = [];
+    }
+    
+    comments[countryName].push({
+        text: commentText,
+        timestamp: new Date().toISOString(),
+        id: Date.now()
+    });
+    
+    saveComments();
+    document.getElementById('commentText').value = '';
+    showNotification('Comentari publicat!', 'success');
+    displayCommentsForCountry(countryName);
+}
+
+function loadComments() {
+    const stored = localStorage.getItem('comments');
+    if (stored) {
+        comments = JSON.parse(stored);
     }
 }
 
-async function loadComments(countryName) {
-    try {
-        const response = await fetch(
-            `${SERVICES.COMMENTS}/api/comments/${countryName}`
-        );
-        
-        if (response.ok) {
-            const comments = await response.json();
-            displayComments(comments);
-        }
-    } catch (error) {
-        console.error('Error loading comments:', error);
-    }
+function saveComments() {
+    localStorage.setItem('comments', JSON.stringify(comments));
+}
+
+function displayCommentsForCountry(countryName) {
+    const countryComments = comments[countryName] || [];
+    displayComments(countryComments);
 }
 
 function displayComments(comments) {
@@ -323,6 +296,7 @@ function addToSearchHistory(country) {
     if (!searchHistory.includes(country)) {
         searchHistory.unshift(country);
         if (searchHistory.length > 10) searchHistory.pop();
+        sessionStorage.setItem('searchHistory', JSON.stringify(searchHistory));
         displaySearchHistory();
     }
 }
